@@ -21,7 +21,10 @@ carsRouter.post('/', (req, res) => {
 
 })
 
-
-
+carsRouter.get('/:id', async (req, res) => {
+    let id = req.params.id;
+    let car = await models.Car.findById(id);
+    res.status(200).send(car)
+})
 
 module.exports = carsRouter;
